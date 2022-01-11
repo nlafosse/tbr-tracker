@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import Form from "./components/Form";
+import BookList from "./components/BookList";
 
 function App() {
+  const [inputText, setInputText] = useState("");
+  const [books, setBooks] = useState([]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <h1>TBR randomizer</h1>
       </header>
+      <Form
+        books={books}
+        setBooks={setBooks}
+        inputText={inputText}
+        setInputText={setInputText}
+      />
+      <BookList books={books} setBooks={setBooks} />
     </div>
   );
 }
